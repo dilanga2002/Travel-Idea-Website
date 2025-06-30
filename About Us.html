@@ -1,0 +1,763 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Meet the passionate team behind Travel Idea. Learn about our mission to create extraordinary travel experiences and discover why thousands choose us for their adventures.">
+    <meta name="keywords" content="about travel idea, travel team, travel company, travel experts, travel consultants">
+    <meta name="author" content="Travel Idea">
+    <title>About Travel Idea - Meet Our Expert Travel Team</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #667eea;
+            --primary-dark: #5a67d8;
+            --secondary: #764ba2;
+            --accent: #f093fb;
+            --accent-alt: #f5576c;
+            --bg-glass: rgba(255, 255, 255, 0.08);
+            --bg-glass-hover: rgba(255, 255, 255, 0.12);
+            --bg-dark: #0f0f23;
+            --bg-footer: #1a1a2e;
+            --text-main: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-muted: #a0aec0;
+            --radius: 20px;
+            --radius-sm: 12px;
+            --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.1);
+            --shadow-glow: 0 0 40px rgba(102, 126, 234, 0.15);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Header Styles */
+        header {
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 8px 20px rgba(102, 126, 234, 0.3));
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 8px;
+            align-items: center;
+        }
+
+        nav ul li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 12px 24px;
+            border-radius: 50px;
+            transition: var(--transition);
+            position: relative;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        nav ul li a::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-alt));
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        nav ul li a:hover::before,
+        nav ul li a.active::before {
+            opacity: 1;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: var(--text-main);
+            transform: translateY(-2px);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-alt));
+            color: var(--text-main);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 20px rgba(240, 147, 251, 0.3);
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 8px 30px rgba(240, 147, 251, 0.5);
+        }
+
+        /* Footer Styles */
+        .site-footer {
+            background: var(--bg-footer);
+            background-image: linear-gradient(135deg, var(--bg-footer) 0%, #0f0f23 100%);
+            color: var(--text-muted);
+            padding: 40px 0 0 0;
+            margin-top: 60px;
+            position: relative;
+        }
+
+        .site-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .footer-section h3 {
+            color: var(--text-main);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-alt));
+            border-radius: 2px;
+        }
+
+        .footer-about p {
+            line-height: 1.6;
+            margin-bottom: 12px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-links ul,
+        .footer-contact ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+            padding-left: 15px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links ul li a::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            opacity: 0;
+            transition: var(--transition);
+            color: var(--accent);
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--accent);
+            padding-left: 20px;
+        }
+
+        .footer-links ul li a:hover::before {
+            opacity: 1;
+        }
+
+        .footer-contact ul li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-contact ul li i {
+            margin-right: 12px;
+            color: var(--accent);
+            width: 18px;
+            text-align: center;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg-glass);
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-icons a:hover {
+            background: linear-gradient(135deg, var(--accent), var(--accent-alt));
+            color: var(--text-main);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(240, 147, 251, 0.3);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 20px 40px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .footer-bottom p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .header-container {
+                padding: 0 30px;
+            }
+            
+            .footer-container {
+                padding: 0 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 20px;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li a {
+                padding: 10px 18px;
+                font-size: 0.8rem;
+            }
+
+            .footer-container {
+                padding: 0 20px;
+                grid-template-columns: 1fr;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .footer-bottom {
+                padding: 15px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo img {
+                height: 50px;
+            }
+        }
+    </style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* Header Section */
+        .header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Team Section */
+        .team-section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Team Grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        /* Team Card */
+        .team-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #667eea;
+            flex-shrink: 0;
+        }
+
+        .card-content {
+            flex: 1;
+        }
+
+        .card-content h3 {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .position {
+            color: #667eea;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-content p {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* About Company Section */
+        .about-company {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 50px 0;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-company h2 {
+            font-size: 2.2rem;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .about-company p {
+            font-size: 1.1rem;
+            color: #555;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .stat-card i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #ffd700;
+        }
+
+        .stat-card h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .stat-card p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .team-card img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .stats-section {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .team-card {
+                padding: 20px;
+            }
+
+            .about-company {
+                padding: 25px;
+            }
+
+            .stats-section {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+        <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/travel logo.png" alt="Travel Idea Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="Home.html">HOME</a></li>
+                    <li><a href="Country Page.html">COUNTRY</a></li>
+                    <li><a href="Contact Us.html">CONTACT US</a></li>
+                    <li><a href="About Us.html" class="active">ABOUT US</a></li>
+                    <li><a href="Feedback.html">FEEDBACK</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- Header Section -->
+    <div class="header">
+        <div class="container">
+            <h1>About Travel Idea</h1>
+            <p>Discover the passionate team behind your next adventure. We're dedicated to making your travel dreams come true with personalized experiences and exceptional service.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- About Company Section -->
+        <div class="about-company">
+            <h2>Our Mission</h2>
+            <p>At Travel Idea, we believe that every journey should be extraordinary. Our mission is to provide you with unforgettable travel experiences, expert guidance, and personalized service that exceeds your expectations. We're not just a travel company – we're your partners in creating memories that last a lifetime.</p>
+            <p>With years of experience and a passion for exploration, our team is committed to helping you discover the world's most beautiful destinations while ensuring your comfort, safety, and satisfaction every step of the way.</p>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats-section">
+            <div class="stat-card">
+                <i class="fas fa-users"></i>
+                <h3>500+</h3>
+                <p>Happy Travelers</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>50+</h3>
+                <p>Destinations</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-star"></i>
+                <h3>4.9</h3>
+                <p>Average Rating</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>5+</h3>
+                <p>Years Experience</p>
+            </div>
+        </div>
+
+        <!-- Team Section -->
+        <div class="team-section">
+            <h2 class="section-title">Meet Our Team</h2>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="images/man.jpg" alt="M.S.M. Nirwan">
+                    <div class="card-content">
+                        <h3>MR. M.S.M. Nirwan</h3>
+                        <div class="position">Coordinate Officer</div>
+                        <p>Coordinate officers play a pivotal role in organizational efficiency, overseeing seamless collaboration between departments. Responsible for aligning resources, schedules, and communications, they ensure streamlined operations and effective execution of strategic initiatives, fostering synergy and success.</p>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <img src="images/man.jpg" alt="S.P.S. Gayashan">
+                    <div class="card-content">
+                        <h3>MR. S.P.S. Gayashan</h3>
+                        <div class="position">Security Officer</div>
+                        <p>As a Security Officer on our website, I am committed to safeguarding your online experience. With expertise in threat detection, risk assessment, and proactive measures, I ensure a secure digital environment for your peace of mind.</p>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <img src="images/man.jpg" alt="L.W.S. Maduwantha">
+                    <div class="card-content">
+                        <h3>MR. L.W.S. Maduwantha</h3>
+                        <div class="position">Structure and Designing Officer</div>
+                        <p>As a Structure and Designing Officer for our website, I am the creative architect, ensuring an intuitive user experience. Your responsibilities include crafting visually appealing layouts, optimizing site structure, and implementing design strategies to enhance user engagement and functionality.</p>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <img src="images/man.jpg" alt="K.W.G.T.D. Moraies">
+                    <div class="card-content">
+                        <h3>MR. K.W.G.T.D. Moraies</h3>
+                        <div class="position">Communication Officer</div>
+                        <p>As a Communication Officer, I foster effective online dialogue, curate engaging content, and enhance brand presence. My responsibilities include crafting compelling messages, managing social media, and ensuring seamless communication to strengthen connections with our audience.</p>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <img src="images/man.jpg" alt="D.P.T. Dilsara">
+                    <div class="card-content">
+                        <h3>MR. D.P.T. Dilsara</h3>
+                        <div class="position">Research Officer</div>
+                        <p>As a research officer at our site, our main role is to conduct extensive investigations, analyze data and synthesize information to provide valuable insights. Our expertise will contribute to making informed decisions and improving the content and functionality of our platform.</p>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <img src="images/man.jpg" alt="R.A. Ovinu Madisha">
+                    <div class="card-content">
+                        <h3>MR. R.A. Ovinu Madisha</h3>
+                        <div class="position">Team Organizer Officer</div>
+                        <p>As Team Organizer, I play a key role in coordinating and optimizing team dynamics on our site. Your responsibilities include scheduling, task allocation, and fostering collaboration to ensure seamless workflow and project success.</p>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <img src="images/man.jpg" alt="W.P.A. Gaurawa">
+                    <div class="card-content">
+                        <h3>MR. W.P.A. Gaurawa</h3>
+                        <div class="position">Customer Feedback Control Officer</div>
+                        <p>As a Customer Feedback Control Officer, I meticulously oversee and analyze user reviews, ensuring a positive online experience. My role involves implementing strategies to address concerns, improve satisfaction, and maintain the website's reputation for exceptional customer service.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-section footer-about">
+                <h3>About Travel Idea</h3>
+                <p>Your gateway to exploring the world with confidence and style. We specialize in creating extraordinary travel experiences that go beyond the ordinary, connecting you with the heart and soul of every destination.</p>
+                <p>Since our founding, we've helped thousands of travelers discover their perfect adventures across the globe.</p>
+            </div>
+            <div class="footer-section footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="Country Page.html">Destinations</a></li>
+                    <li><a href="Contact Us.html">Contact Us</a></li>
+                    <li><a href="About Us.html" class="active">About Us</a></li>
+                    <li><a href="Feedback.html">Feedback</a></li>
+                </ul>
+            </div>
+            <div class="footer-section footer-contact">
+                <h3>Get In Touch</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Travel Lane, Adventure City</li>
+                    <li><i class="fas fa-phone"></i> +94 77 123 1233</li>
+                    <li><i class="fas fa-envelope"></i> hello@travelidea.com</li>
+                    <li><i class="fas fa-clock"></i> Mon - Fri: 9:00 AM - 6:00 PM</li>
+                </ul>
+            </div>
+            <div class="footer-section footer-social">
+                <h3>Follow Our Journey</h3>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Travel Idea. All rights reserved. | Crafted with &#10084;&#65039; for adventurous souls</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,426 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Australia</title>
+
+    <style>
+                body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .page-content {
+            flex: 1;
+        }
+
+        .page-header {
+            position: relative;
+            height: 200px;
+            background: url('../images/Australia.jpeg') center/cover no-repeat;
+            color: #fff;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 50px;
+            overflow: hidden;
+            filter: brightness(1);
+            background-size: cover;
+        }
+
+        .header-content {
+            border: 2px solid white;
+            border-radius: 8px;
+            width: 1000px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.15);
+            color: white;
+            background-image: url('your-background-image.jpg');
+            background-size: cover;
+        }
+
+       .p{ font-size:1.1em;
+             text-align:justify;}
+
+        h1 {
+            margin: 20px;
+            font-size: 5em;
+            letter-spacing: 2px;
+            -webkit-text-stroke: 0.4px black;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
+            padding: 6px;
+            border-top: 15px solid transparent;
+        }
+
+        section {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .about {
+            border: 1px solid gray;
+            border-left: 400px solid white;
+            border-right: 400px solid white;
+            font-size: 36px;
+            text-align: center;
+        }
+
+        #overview {
+           max-width: 1100px;
+            margin: 20px auto;
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+       
+        #map {
+            max-width: 1000px;
+            height: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        
+        #map h2 {
+            text-align: center;
+        }
+
+        #history {
+             max-width: 1100px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        #places {
+                max-width: 1100px;
+            height:400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+    #places-container {
+            display: flex;
+            overflow-x: auto;
+            justify-content: space-between;
+            padding: 10px;
+        }
+
+        .place-card {
+            width: 150px;
+            margin-right: 10px;
+            border: 1px solid gray;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .place-card img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+        }
+
+        .place-card h3 {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .map {
+            width: 100%;
+            height: 300px;
+            margin-top: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .travel-header {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            box-sizing: border-box;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1000;
+        }
+
+        .travel-header .logo img {
+            height: 70px;
+            transition: transform 0.3s;
+        }
+
+        .travel-header .logo img:hover {
+            transform: scale(1.1);
+        }
+
+        .travel-header nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+        }
+
+        .travel-header nav ul li {
+            margin-left: 25px;
+        }
+
+        .travel-header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 12px 18px;
+            border-radius: 25px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .travel-header nav ul li a:hover,
+        .travel-header nav ul li a.active {
+            background-color: #ff6347;
+            color: #fff;
+        }
+
+        .site-footer {
+            background-color: #1a1a1a;
+            color: #a0a0a0;
+            padding: 20px 0;
+            font-size: 15px;
+            line-height: 24px;
+            margin-top: auto;
+        }
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .footer-about, .footer-links, .footer-contact, .footer-social {
+            flex: 1;
+            margin: 10px 20px;
+            min-width: 200px;
+        }
+        .site-footer h3 {
+            color: #fff;
+            font-size: 18px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        .footer-about p {
+            margin-bottom: 15px;
+        }
+        .footer-links ul, .footer-contact ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-links ul li a, .footer-contact ul li {
+            color: #a0a0a0;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .footer-links ul li a:hover {
+            color: #ff6347;
+        }
+        .footer-contact ul li i {
+            margin-right: 10px;
+            color: #ff6347;
+        }
+        .footer-social .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 50%;
+            background-color: #333;
+            color: #fff;
+            margin-right: 10px;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .footer-social .social-icons a:hover {
+            background-color: #ff6347;
+            transform: scale(1.1);
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 10px;
+            margin-top: 10px;
+            border-top: 1px solid #444;
+        }
+        .footer-bottom p {
+            margin: 0;
+        }
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-about, .footer-links, .footer-contact, .footer-social {
+                margin: 20px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="travel-header">
+        <div class="logo">
+            <img src="../images/travel logo.png" alt="Travel Idea Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../Home.html">HOME</a></li>
+                <li><a href="../Country Page.html">COUNTRY</a></li>
+                <li><a href="../Contact Us.html">CONTACT US</a></li>
+                <li><a href="../About Us.html">ABOUT US</a></li>
+                <li><a href="../Feedback.html">FEEDBACK</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="page-content"><section class="page-header"><div class="header-content">
+            <h1>"Great Barrier Reef (QLD) </h1>
+        </div></section>
+
+    <section id="overview">
+        <h2 class="about" style="text-align:center">Overview</h2>
+        <p class="p">
+            Australia, a marvel of landmarks: Sydney Opera House, Great Barrier Reef's aquatic splendor, Uluru's Red Centre, Great Ocean Road's coastal allure, 
+                Bondi Beach's sandy charm, Daintree Rainforest's ancient mystique, wildlife haven Kangaroo Island, Blue Mountains' scenic grandeur, Melbourne's vibrant street art, 
+                and the Pinnacles in Western Australia's limestone enigma. A tapestry of beauty across the continent.                
+                
+        </p>
+    </section>
+
+    <section id="history">
+        <h2 class="about" style="text-align:center" > History </h2>
+        <h3> Formation over Millions of Years</h3>
+        <p class="p">
+            
+            The Great Barrier Reef, off Queensland's coast, formed over millions of years through intricate coral growth. This natural wonder, a UNESCO World Heritage Site, represents an ecosystem of unparalleled biodiversity. Its history is a testament to the slow and steady process of coral development, creating a breathtaking marine environment that attracts visitors worldwide.
+        </p>
+    </section>
+
+    <section id="places">
+        <h2 class="about" >Explore Beautiful Places</h2>
+        
+
+<div id="places-container">
+            <div class="place-card">
+
+                <img src="../images/Great Barrier Reef (QLD)1.jpeg" alt="Place 1">
+                <h3>Place 1</h3>
+                
+
+            </div>
+
+            <div class="place-card">
+
+                <img src="../images/Great Barrier Reef (QLD)2.jpg" alt="Place 2">
+                <h3>Place 2</h3>
+                
+            </div>
+
+            <div class="place-card">
+
+                <img src="../images/Great Barrier Reef (QLD)3.jpeg" alt="Place 3">
+                <h3>Place 3</h3>
+                
+            </div>
+
+            <div class="place-card">
+
+                <img src="../images/Great Barrier Reef (QLD)4.jpg" alt="Place 4">
+                <h3>Place 4</h3>
+              
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="map">
+    <h2 class="about" style="text-align:center">Map</h2>
+    <!-- Add your map here, for example, using an iframe with a map embed code -->
+    <iframe
+        class="map"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15678684.349285142!2d137.4158373406359!3d-16.383954220777763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6bdf1446822c713b%3A0x192a574136833cda!2sGreat%20Barrier%20Reef%2C%20Australia!5e0!3m2!1sen!2slk!4v1701616495688!5m2!1sen!2slk" 
+        width="600"
+        height="550px"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+    ></iframe>
+</section>
+
+
+    </div><footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>About Travel Idea</h3>
+                <p>Your gateway to exploring the world. We provide curated travel plans and inspiration for your next adventure.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../Home.html">Home</a></li>
+                    <li><a href="../Country Page.html">Country</a></li>
+                    <li><a href="../Contact Us.html">Contact Us</a></li>
+                    <li><a href="../About Us.html">About Us</a></li>
+                    <li><a href="../Feedback.html">Feedback</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Travel Lane, Adventure City</li>
+                    <li><i class="fas fa-phone"></i> +94771231233</li>
+                    <li><i class="fas fa-envelope"></i> travelidea@gmail.com</li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Travel Idea. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Share your feedback and travel ideas with Travel Idea. Rate our services, submit suggestions, and help us improve your travel experience.">
+    <meta name="keywords" content="travel feedback, customer reviews, travel suggestions, rate travel service, travel ideas">
+    <meta name="author" content="Travel Idea">
+    <title>Share Your Feedback - Travel Idea Customer Reviews</title>
+    <link rel="stylesheet" href="my.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        :root {
+            --primary: #667eea;
+            --primary-dark: #5a67d8;
+            --secondary: #764ba2;
+            --accent: #f093fb;
+            --accent-alt: #f5576c;
+            --bg-glass: rgba(255, 255, 255, 0.08);
+            --bg-glass-hover: rgba(255, 255, 255, 0.12);
+            --bg-dark: #0f0f23;
+            --bg-footer: #1a1a2e;
+            --text-main: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-muted: #a0aec0;
+            --radius: 20px;
+            --radius-sm: 12px;
+            --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.1);
+            --shadow-glow: 0 0 40px rgba(102, 126, 234, 0.15);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        /* Header Styles */
+        header {
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img {
+            height: 60px;
+            width: auto;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+        }
+        .logo img:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 8px 20px rgba(102, 126, 234, 0.3));
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 8px;
+            align-items: center;
+        }
+        nav ul li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 12px 24px;
+            border-radius: 50px;
+            transition: var(--transition);
+            position: relative;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+        nav ul li a::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-alt));
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
+        }
+        nav ul li a:hover::before,
+        nav ul li a.active::before {
+            opacity: 1;
+        }
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: var(--text-main);
+            transform: translateY(-2px);
+        }
+        /* Footer Styles */
+        .site-footer {
+            background: var(--bg-footer);
+            background-image: linear-gradient(135deg, var(--bg-footer) 0%, #0f0f23 100%);
+            color: var(--text-muted);
+            padding: 40px 0 0 0;
+            margin-top: 60px;
+            position: relative;
+        }
+        .site-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        .footer-section h3 {
+            color: var(--text-main);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 8px;
+        }
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-alt));
+            border-radius: 2px;
+        }
+        .footer-about p {
+            line-height: 1.6;
+            margin-bottom: 12px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        .footer-links ul,
+        .footer-contact ul {
+            list-style: none;
+        }
+        .footer-links ul li {
+            margin-bottom: 8px;
+        }
+        .footer-links ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+            padding-left: 15px;
+            font-size: 0.9rem;
+        }
+        .footer-links ul li a::before {
+            content: '?';
+            position: absolute;
+            left: 0;
+            opacity: 0;
+            transition: var(--transition);
+            color: var(--accent);
+        }
+        .footer-links ul li a:hover {
+            color: var(--accent);
+            padding-left: 20px;
+        }
+        .footer-links ul li a:hover::before {
+            opacity: 1;
+        }
+        .footer-contact ul li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        .footer-contact ul li i {
+            margin-right: 12px;
+            color: var(--accent);
+            width: 18px;
+            text-align: center;
+        }
+        .social-icons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg-glass);
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .social-icons a:hover {
+            background: linear-gradient(135deg, var(--accent), var(--accent-alt));
+            color: var(--text-main);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(240, 147, 251, 0.3);
+        }
+        .footer-bottom {
+            text-align: center;
+            padding: 20px 40px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.2);
+        }
+        .footer-bottom p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin: 0;
+        }
+        @media (max-width: 1024px) {
+            .header-container {
+                padding: 0 30px;
+            }
+            .footer-container {
+                padding: 0 30px;
+            }
+        }
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 20px;
+                flex-direction: column;
+                gap: 20px;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            nav ul li a {
+                padding: 10px 18px;
+                font-size: 0.8rem;
+            }
+            .footer-container {
+                padding: 0 20px;
+                grid-template-columns: 1fr;
+                gap: 20px;
+                text-align: center;
+            }
+            .footer-bottom {
+                padding: 15px 20px;
+            }
+        }
+        @media (max-width: 480px) {
+            .logo img {
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/travel logo.png" alt="Travel Idea Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="Home.html">HOME</a></li>
+                    <li><a href="Country Page.html">COUNTRY</a></li>
+                    <li><a href="Contact Us.html">CONTACT US</a></li>
+                    <li><a href="About Us.html">ABOUT US</a></li>
+                    <li><a href="Feedback.html" class="active">FEEDBACK</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="hero">
+        <div class="feedback-container">
+            <form class="feedback-form">
+                <!-- Feedback Section -->
+                <div class="feedback-section">
+                    <h2 class="section-title">Share Your Feedback</h2>
+                    <div class="input-group">
+                        <textarea id="feedback-message" rows="6" required></textarea>
+                        <label for="feedback-message">Send Your Idea</label>
+                    </div>
+                    <div class="button-container">
+                        <button type="button" class="submit-btn">Send Feedback</button>
+                    </div>
+                </div>
+                <!-- Rating Section -->
+                <div class="rating-section">
+                    <h2 class="section-title">Rate Our Service</h2>
+                    <div class="rating-container">
+                        <div class="rating">
+                            <input type="radio" name="rating" id="star-5" class="rating-radio" value="5">
+                            <label for="star-5"><i class="fa-solid fa-star"></i></label>
+                            <input type="radio" name="rating" id="star-4" class="rating-radio" value="4">
+                            <label for="star-4"><i class="fa-solid fa-star"></i></label>
+                            <input type="radio" name="rating" id="star-3" class="rating-radio" value="3">
+                            <label for="star-3"><i class="fa-solid fa-star"></i></label>
+                            <input type="radio" name="rating" id="star-2" class="rating-radio" value="2">
+                            <label for="star-2"><i class="fa-solid fa-star"></i></label>
+                            <input type="radio" name="rating" id="star-1" class="rating-radio" value="1">
+                            <label for="star-1"><i class="fa-solid fa-star"></i></label>
+                        </div>
+                    </div>
+                    <div class="button-container">
+                        <button type="button" class="submit-btn">Submit Rating</button>
+                    </div>
+                </div>
+                <!-- Travel Idea Section -->
+                <div class="travel-idea-section">
+                    <h2 class="section-title">Share Your Travel Idea</h2>
+                    <div class="input-group">
+                        <textarea id="travel-idea" rows="6" required></textarea>
+                        <label for="travel-idea">Your Travel Idea</label>
+                    </div>
+                    <div class="image-upload-section">
+                        <div class="image-upload-wrap">
+                            <input class="file-upload-input" type="file" accept="image/*"/>
+                            <div class="upload-text">
+                                <i class="fa-solid fa-cloud-upload-alt"></i>
+                                <p>Click to upload an image or drag and drop</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-container">
+                        <button type="submit" class="submit-btn">Share Idea</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-section footer-about">
+                <h3>About Travel Idea</h3>
+                <p>Your gateway to exploring the world with confidence and style. We specialize in creating extraordinary travel experiences that go beyond the ordinary, connecting you with the heart and soul of every destination.</p>
+                <p>Since our founding, we've helped thousands of travelers discover their perfect adventures across the globe.</p>
+            </div>
+            <div class="footer-section footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="Country Page.html">Destinations</a></li>
+                    <li><a href="Contact Us.html">Contact Us</a></li>
+                    <li><a href="About Us.html">About Us</a></li>
+                    <li><a href="Feedback.html">Feedback</a></li>
+                </ul>
+            </div>
+            <div class="footer-section footer-contact">
+                <h3>Get In Touch</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Travel Lane, Adventure City</li>
+                    <li><i class="fas fa-phone"></i> +94 77 123 1233</li>
+                    <li><i class="fas fa-envelope"></i> hello@travelidea.com</li>
+                    <li><i class="fas fa-clock"></i> Mon - Fri: 9:00 AM - 6:00 PM</li>
+                </ul>
+            </div>
+            <div class="footer-section footer-social">
+                <h3>Follow Our Journey</h3>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Travel Idea. All rights reserved. | Crafted with &#10084;&#65039; for adventurous souls</p>
+        </div>
+    </footer>
+</body>
+</html>

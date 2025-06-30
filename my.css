@@ -1,0 +1,270 @@
+/* Body styling to remove white space in header area */
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: linear-gradient(135deg, #0f0f23 0%, #16213e 50%, #764ba2 100%);
+  background-attachment: fixed;
+  color: #ffffff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+*{
+  margin:0;
+  padding:0;
+  font-family:'poppins' , sans-serif;
+  box-sizing:border-box;
+}
+
+/* Header Styling */
+.feedback-header {
+  background-color: #3551b5;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  border-bottom: 1px solid black;
+}
+
+.feedback-header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+/* Hero Section */
+.hero{
+   width:100%;
+   min-height: 100vh;
+   background-image: linear-gradient(rgba(0,0,0,0.7),#3551b5) ,url(images/IMG-beach.jpg);
+   background-position:center;
+   background-size:cover;
+   display:flex;
+   align-items:center;
+   justify-content:center;
+   padding: 40px 20px;
+}
+
+/* Feedback Container */
+.feedback-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Section Styling */
+.feedback-section,
+.rating-section,
+.travel-idea-section {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.section-title {
+  color: #fff;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Input Group Styling */
+.input-group{
+  margin-bottom: 20px;
+  position:relative;
+}
+
+input, textarea{
+  width:100%;
+  padding: 15px;
+  outline:0;
+  border:1px solid #fff;
+  color:#fff;
+  background:transparent;
+  font-size:16px;
+  border-radius: 8px;
+  resize: vertical;
+}
+
+label{
+   position:absolute;
+   left:15px;
+   top:15px;
+   color:#fff;
+   cursor:text;
+   transition:0.3s ease;
+   pointer-events: none;
+   background: transparent;
+}
+
+textarea:focus~label,
+textarea:valid~label,
+input:focus~label,
+input:valid~label{
+  top: -10px;
+  left: 10px;
+  font-size: 12px;
+  background: #3551b5;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* Button Styling */
+.button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.submit-btn{
+  font-family:"roboto" , sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  background: #1e90ff;
+  min-width: 120px;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover{
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
+  background: #0066cc;
+}
+
+/* Rating Section */
+.rating-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.rating{
+  direction: rtl;
+  display: inline-flex;
+  gap: 5px;
+}
+
+.rating label{
+  display: inline-block;
+  cursor: pointer;
+  color: #ebebeb;
+  position: static;
+  background: none;
+  padding: 0;
+  top: auto;
+  left: auto;
+}
+
+.rating label i{
+  font-size: 2.5rem;
+  transition: all 0.2s ease;
+}
+
+.rating label:hover i,
+.rating label:hover~label i {
+  color: #ffea4e;
+  transform: scale(1.1);
+}
+
+.rating .rating-radio{
+  display: none;
+}
+
+.rating input[type="radio"]:checked+label i,
+.rating input[type="radio"]:checked~label i {
+  color: #ffea4e;
+}
+
+/* Image Upload Section */
+.image-upload-section {
+  margin: 20px 0;
+}
+
+.image-upload-wrap{
+  width: 100%;
+  border: 2px dashed #fff;
+  border-radius: 10px;
+  padding: 40px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.image-upload-wrap:hover {
+  border-color: #1e90ff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.file-upload-input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.upload-text {
+  color: #fff;
+}
+
+.upload-text i {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.upload-text p {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* Footer */
+.feedback-footer {
+  background-color: #3551b5;
+  height: 60px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .feedback-header h1 {
+    font-size: 2rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .feedback-section,
+  .rating-section,
+  .travel-idea-section {
+    padding: 20px;
+  }
+  
+  .rating label i {
+    font-size: 2rem;
+  }
+  
+  .hero {
+    padding: 20px 10px;
+  }
+}

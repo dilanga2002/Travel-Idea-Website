@@ -1,0 +1,882 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get in touch with Travel Idea. Contact our travel experts for personalized trip planning, inquiries, and support. We're here to help plan your perfect adventure.">
+    <meta name="keywords" content="contact travel idea, travel support, travel inquiry, trip planning, travel consultation">
+    <meta name="author" content="Travel Idea">
+    <title>Contact Travel Idea - Get Expert Travel Support</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #4a5568;
+            --primary-dark: #2d3748;
+            --secondary: #553c9a;
+            --accent: #805ad5;
+            --accent-alt: #667eea;
+            --bg-glass: rgba(0, 0, 0, 0.4);
+            --bg-glass-hover: rgba(0, 0, 0, 0.6);
+            --bg-dark: #1a202c;
+            --bg-footer: #0d1117;
+            --text-main: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-muted: #a0aec0;
+            --radius: 20px;
+            --radius-sm: 12px;
+            --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.3);
+            --shadow-glow: 0 0 40px rgba(128, 90, 213, 0.2);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Header Styles */
+        header {
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 8px 20px rgba(102, 126, 234, 0.3));
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 8px;
+            align-items: center;
+        }
+
+        nav ul li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 12px 24px;
+            border-radius: 50px;
+            transition: var(--transition);
+            position: relative;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        nav ul li a::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-alt));
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        nav ul li a:hover::before,
+        nav ul li a.active::before {
+            opacity: 1;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: var(--text-main);
+            transform: translateY(-2px);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            color: var(--text-main);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 
+                0 4px 20px rgba(128, 90, 213, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px) scale(1.1);
+            background: linear-gradient(135deg, var(--accent-alt), var(--accent));
+            box-shadow: 
+                0 8px 30px rgba(128, 90, 213, 0.6),
+                0 4px 15px rgba(103, 126, 234, 0.4);
+        }
+
+        /* Footer Styles */
+        .site-footer {
+            background: var(--bg-footer);
+            background-image: linear-gradient(135deg, var(--bg-footer) 0%, #0f0f23 100%);
+            color: var(--text-muted);
+            padding: 40px 0 0 0;
+            margin-top: 60px;
+            position: relative;
+        }
+
+        .site-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .footer-section h3 {
+            color: var(--text-main);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-alt));
+            border-radius: 2px;
+        }
+
+        .footer-about p {
+            line-height: 1.6;
+            margin-bottom: 12px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-links ul,
+        .footer-contact ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+            padding-left: 15px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links ul li a::before {
+            content: 'â†’';
+            position: absolute;
+            left: 0;
+            opacity: 0;
+            transition: var(--transition);
+            color: var(--accent);
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--accent);
+            padding-left: 20px;
+        }
+
+        .footer-links ul li a:hover::before {
+            opacity: 1;
+        }
+
+        .footer-contact ul li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-contact ul li i {
+            margin-right: 12px;
+            color: var(--accent);
+            width: 18px;
+            text-align: center;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg-glass);
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-icons a:hover {
+            background: linear-gradient(135deg, var(--accent), var(--accent-alt));
+            color: var(--text-main);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(240, 147, 251, 0.3);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 20px 40px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .footer-bottom p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .header-container {
+                padding: 0 30px;
+            }
+            
+            .footer-container {
+                padding: 0 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 20px;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li a {
+                padding: 10px 18px;
+                font-size: 0.8rem;
+            }
+
+            .footer-container {
+                padding: 0 20px;
+                grid-template-columns: 1fr;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .footer-bottom {
+                padding: 15px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo img {
+                height: 50px;
+            }
+        }
+
+        /* Body and Main Content Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: 
+                linear-gradient(135deg, rgba(26, 32, 44, 0.8) 0%, rgba(85, 60, 154, 0.7) 50%, rgba(13, 17, 23, 0.9) 100%),
+                url('images/bg.jpg') center/cover no-repeat fixed;
+            color: var(--text-main);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/bg2.jpg') center/cover no-repeat;
+            opacity: 0.1;
+            z-index: -1;
+            transform: scaleX(-1);
+        }
+
+        main {
+            flex: 1;
+            padding: 40px 0;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: 
+                linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(128, 90, 213, 0.3) 50%, rgba(0, 0, 0, 0.8) 100%),
+                url('images/bg.jpg') center/cover no-repeat;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 2px solid var(--accent);
+            padding: 100px 0;
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 70%, rgba(128, 90, 213, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(103, 126, 234, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .page-header .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: #1a202c;
+            margin-bottom: 15px;
+            text-shadow: 
+                3px 3px 6px rgba(255, 255, 255, 0.9),
+                0 0 15px rgba(255, 255, 255, 0.7),
+                0 0 30px rgba(255, 255, 255, 0.5);
+            font-weight: 800;
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            display: inline-block;
+        }
+
+        
+        .page-header p {
+            font-size: 1.3rem;
+            color: #1a202c;
+            opacity: 1;
+            text-shadow: 
+                2px 2px 4px rgba(255, 255, 255, 0.9),
+                0 0 10px rgba(255, 255, 255, 0.7);
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 25px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 60px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 25px;
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .contact-info-item:hover {
+            transform: translateY(-5px);
+            background: var(--bg-glass-hover);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .contact-info-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--text-main);
+            flex-shrink: 0;
+            box-shadow: 0 8px 20px rgba(128, 90, 213, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        /* Specific brand colors for each service */
+        .contact-info-item:nth-child(1) .contact-info-icon {
+            background: linear-gradient(135deg, #ea4335, #d33b2c);
+            box-shadow: 0 8px 20px rgba(234, 67, 53, 0.3);
+        }
+
+        .contact-info-item:nth-child(2) .contact-info-icon {
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .contact-info-item:nth-child(3) .contact-info-icon {
+            background: linear-gradient(135deg, #1877f2, #166fe5);
+            box-shadow: 0 8px 20px rgba(24, 119, 242, 0.3);
+        }
+
+        .contact-info-item:nth-child(4) .contact-info-icon {
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+            box-shadow: 0 8px 20px rgba(255, 0, 0, 0.3);
+        }
+
+        .contact-info-icon:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 12px 30px rgba(128, 90, 213, 0.4);
+        }
+
+        .contact-info-item:nth-child(1) .contact-info-icon:hover {
+            box-shadow: 0 12px 30px rgba(234, 67, 53, 0.5);
+        }
+
+        .contact-info-item:nth-child(2) .contact-info-icon:hover {
+            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
+        }
+
+        .contact-info-item:nth-child(3) .contact-info-icon:hover {
+            box-shadow: 0 12px 30px rgba(24, 119, 242, 0.5);
+        }
+
+        .contact-info-item:nth-child(4) .contact-info-icon:hover {
+            box-shadow: 0 12px 30px rgba(255, 0, 0, 0.5);
+        }
+
+        .contact-info-content h4 {
+            color: var(--text-main);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .contact-info-content p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: 
+                linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(128, 90, 213, 0.1) 50%, rgba(0, 0, 0, 0.7) 100%),
+                var(--bg-glass);
+            backdrop-filter: blur(20px);
+            border-radius: var(--radius);
+            padding: 40px;
+            border: 1px solid rgba(128, 90, 213, 0.3);
+            box-shadow: 
+                var(--shadow-soft),
+                0 0 30px rgba(128, 90, 213, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-form h2 {
+            color: var(--text-main);
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--text-main) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .input-box {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .input-box input,
+        .input-box textarea {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(128, 90, 213, 0.2);
+            border-radius: var(--radius-sm);
+            color: var(--text-main);
+            font-size: 1rem;
+            font-family: inherit;
+            outline: none;
+            transition: var(--transition);
+            resize: vertical;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .input-box input:focus,
+        .input-box textarea:focus {
+            border-color: var(--accent);
+            background: rgba(0, 0, 0, 0.4);
+            box-shadow: 
+                0 0 20px rgba(128, 90, 213, 0.3),
+                inset 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .input-box input:valid,
+        .input-box textarea:valid {
+            border-color: var(--accent-alt);
+            box-shadow: 
+                0 0 10px rgba(103, 126, 234, 0.2),
+                inset 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .input-box span {
+            position: absolute;
+            left: 20px;
+            top: 15px;
+            color: var(--text-muted);
+            font-size: 1rem;
+            pointer-events: none;
+            transition: var(--transition);
+            background: transparent;
+        }
+
+        .input-box input:focus ~ span,
+        .input-box input:valid ~ span,
+        .input-box textarea:focus ~ span,
+        .input-box textarea:valid ~ span {
+            top: -10px;
+            left: 15px;
+            font-size: 0.8rem;
+            color: var(--accent);
+            background: var(--bg-dark);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .input-box input[type="submit"] {
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            color: var(--text-main);
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: var(--transition);
+            margin-top: 10px;
+            box-shadow: 
+                0 4px 15px rgba(128, 90, 213, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .input-box input[type="submit"]:hover {
+            background: linear-gradient(135deg, var(--accent-alt), var(--accent));
+            transform: translateY(-3px);
+            box-shadow: 
+                0 15px 35px rgba(128, 90, 213, 0.4),
+                0 5px 15px rgba(103, 126, 234, 0.3);
+        }
+
+        .input-box input[type="submit"]:active {
+            transform: translateY(-1px);
+            box-shadow: 
+                0 8px 20px rgba(128, 90, 213, 0.3),
+                inset 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .contact-form {
+                padding: 30px 20px;
+            }
+
+            .contact-info-item {
+                padding: 20px;
+            }
+
+            .page-header {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+        <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/travel logo.png" alt="Travel Idea Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="Home.html">HOME</a></li>
+                    <li><a href="Country Page.html">COUNTRY</a></li>
+                    <li><a href="Contact Us.html" class="active">CONTACT US</a></li>
+                    <li><a href="About Us.html">ABOUT US</a></li>
+                    <li><a href="Feedback.html">FEEDBACK</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <p>Get in touch with Travel Idea - We're here to help plan your perfect adventure</p>
+            </div>
+        </div>
+
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-wrapper">
+            <div class="contact-info">
+                <div class="contact-info-item">
+                    <div class="contact-info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-info-content">
+                        <h4>E-mail Address</h4>
+                        <p>hello@travelidea.com</p>
+                    </div>
+                </div>
+                <div class="contact-info-item">
+                    <div class="contact-info-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="contact-info-content">
+                        <h4>WhatsApp</h4>
+                        <p>077 000 0000</p>
+                    </div>
+                </div>
+                <div class="contact-info-item">
+                    <div class="contact-info-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </div>
+                    <div class="contact-info-content">
+                        <h4>Facebook</h4>
+                        <p>travel idea</p>
+                    </div>
+                </div>
+                <div class="contact-info-item">
+                    <div class="contact-info-icon">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <div class="contact-info-content">
+                        <h4>YouTube</h4>
+                        <p>travel idea</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form id="contact-form">
+                    <h2>Send Message</h2>
+                    <div class="input-box">
+                        <input type="text" required="true">
+                        <span>Full Name</span>
+                    </div>
+                    <div class="input-box">
+                        <input type="email" required="true">
+                        <span>Email</span>
+                    </div>
+                    <div class="input-box">
+                        <textarea required="true"></textarea>
+                        <span>Type your Message.........</span>
+                    </div>
+                    <div class="input-box">
+                        <input type="submit" value="Send">    
+                    </div>
+                </form>
+            </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-section footer-about">
+                <h3>About Travel Idea</h3>
+                <p>Your gateway to exploring the world with confidence and style. We specialize in creating extraordinary travel experiences that go beyond the ordinary, connecting you with the heart and soul of every destination.</p>
+                <p>Since our founding, we've helped thousands of travelers discover their perfect adventures across the globe.</p>
+            </div>
+            <div class="footer-section footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="Country Page.html">Destinations</a></li>
+                    <li><a href="Contact Us.html" class="active">Contact Us</a></li>
+                    <li><a href="About Us.html">About Us</a></li>
+                    <li><a href="Feedback.html">Feedback</a></li>
+                </ul>
+            </div>
+            <div class="footer-section footer-contact">
+                <h3>Get In Touch</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Travel Lane, Adventure City</li>
+                    <li><i class="fas fa-phone"></i> +94 77 123 1233</li>
+                    <li><i class="fas fa-envelope"></i> hello@travelidea.com</li>
+                    <li><i class="fas fa-clock"></i> Mon - Fri: 9:00 AM - 6:00 PM</li>
+                </ul>
+            </div>
+            <div class="footer-section footer-social">
+                <h3>Follow Our Journey</h3>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Travel Idea. All rights reserved. | Crafted with â¤ï¸ for adventurous souls</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+

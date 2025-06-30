@@ -1,0 +1,457 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acropolis of Athens </title>
+
+    <style>
+                body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .page-content {
+            flex: 1;
+        }
+
+        .page-header {
+            position: relative;
+            height: 300px;
+            background: url('../images/shutterstockRF_1168009126.jpg') center/cover no-repeat;
+            color: #fff;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 50px;
+            overflow: hidden;
+            filter: brightness(1);
+            background-size: cover;
+        }
+
+        .header-content {
+            border: 2px solid white;
+            border-radius: 8px;
+            width: 1000px;
+            height:200px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.15);
+            color: white;
+            background-image: url('');
+            background-size: cover;
+        }
+
+       .p{ font-size:1.1em;
+             text-align:justify;}
+
+        h1 {
+            margin: 20px;
+            font-size: 5em;
+            letter-spacing: 2px;
+            -webkit-text-stroke: 0.4px black;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
+            padding: 6px;
+            border-top: 15px solid transparent;
+        }
+
+        section {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .about {
+            border: 1px solid gray;
+            border-left: 200px solid white;
+            border-right: 200px solid white;
+           
+            font-size: 36px;
+            text-align: center;
+        }
+
+        #overview {
+           max-width: 1100px;
+            margin: 20px auto;
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+       
+        #map {
+            max-width: 1000px;
+            height: 400px;
+            margin: 25px auto;
+            padding: 25px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        
+        #map h2 {
+            text-align: center;
+        }
+
+        #history {
+             max-width: 1100px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        #places {
+                max-width: 1100px;
+            height:950px;
+            margin: 17px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+       #places-container {
+            display: flex;
+            overflow-x: auto;
+            justify-content: space-between;
+            padding: 10px;
+        }
+
+        .place-card {
+            width: 700px;
+            height: 375px;
+            margin-right: 8px;
+            border: 1px solid gray;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+
+
+        .place-card img {
+            width: 100%;
+            height: 300px;
+            object-fit:fill;
+        }
+
+ 
+
+        .place-card h3 {
+         margin-top: 0;
+    border: 1px solid white;
+    background-color:white;
+    font-size:30px;
+    
+        }
+
+        .map {
+            width: 100%;
+            height: 300px;
+            margin-top: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .travel-header {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            box-sizing: border-box;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1000;
+        }
+
+        .travel-header .logo img {
+            height: 70px;
+            transition: transform 0.3s;
+        }
+
+        .travel-header .logo img:hover {
+            transform: scale(1.1);
+        }
+
+        .travel-header nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+        }
+
+        .travel-header nav ul li {
+            margin-left: 25px;
+        }
+
+        .travel-header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 12px 18px;
+            border-radius: 25px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .travel-header nav ul li a:hover,
+        .travel-header nav ul li a.active {
+            background-color: #ff6347;
+            color: #fff;
+        }
+
+        .site-footer {
+            background-color: #1a1a1a;
+            color: #a0a0a0;
+            padding: 20px 0;
+            font-size: 15px;
+            line-height: 24px;
+            margin-top: auto;
+        }
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .footer-about, .footer-links, .footer-contact, .footer-social {
+            flex: 1;
+            margin: 10px 20px;
+            min-width: 200px;
+        }
+        .site-footer h3 {
+            color: #fff;
+            font-size: 18px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        .footer-about p {
+            margin-bottom: 15px;
+        }
+        .footer-links ul, .footer-contact ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-links ul li a, .footer-contact ul li {
+            color: #a0a0a0;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .footer-links ul li a:hover {
+            color: #ff6347;
+        }
+        .footer-contact ul li i {
+            margin-right: 10px;
+            color: #ff6347;
+        }
+        .footer-social .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 50%;
+            background-color: #333;
+            color: #fff;
+            margin-right: 10px;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .footer-social .social-icons a:hover {
+            background-color: #ff6347;
+            transform: scale(1.1);
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 10px;
+            margin-top: 10px;
+            border-top: 1px solid #444;
+        }
+        .footer-bottom p {
+            margin: 0;
+        }
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-about, .footer-links, .footer-contact, .footer-social {
+                margin: 20px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="travel-header">
+        <div class="logo">
+            <img src="../images/travel logo.png" alt="Travel Idea Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../Home.html">HOME</a></li>
+                <li><a href="../Country Page.html">COUNTRY</a></li>
+                <li><a href="../Contact Us.html">CONTACT US</a></li>
+                <li><a href="../About Us.html">ABOUT US</a></li>
+                <li><a href="../Feedback.html">FEEDBACK</a></li>
+            </ul>
+        </nav>
+    </header>
+    <nav style="background: #222; padding: 10px 0; text-align: center;">
+        <a href="../Home.html" style="color: #fff; margin: 0 20px; text-decoration: none; font-weight: bold;">Home</a>
+        <a href="../Country Page.html" style="color: #fff; margin: 0 20px; text-decoration: none; font-weight: bold;">Country</a>
+        <a href="../Contact Us.html" style="color: #fff; margin: 0 20px; text-decoration: none; font-weight: bold;">Contact Us</a>
+        <a href="../About Us.html" style="color: #fff; margin: 0 20px; text-decoration: none; font-weight: bold;">About Us</a>
+        <a href="../Feedback.html" style="color: #fff; margin: 0 20px; text-decoration: none; font-weight: bold;">Feedback</a>
+    </nav>
+    <div class="page-content"><section class="page-header"><div class="header-content">
+            <h1>Acropolis of Athens </h1>
+        </div></section>
+
+    <section id="overview">
+        <h2 class="about" style="text-align:center">Overview  </h2>
+        <p class="p">
+          
+The Acropolis of Athens, perched on a commanding rocky outcrop, stands as a timeless emblem of ancient Greek civilization. This UNESCO World Heritage Site is a monumental citadel adorned with iconic structures, including the Parthenon and the Propylaea, that have defined classical Greek architecture. Offering panoramic views of Athens, the Acropolis serves as a living museum, narrating tales of religious rituals, political gatherings, and artistic achievements. Beyond its architectural grandeur, the site invites contemplation at the Areopagus and Philopappos Hill, providing visitors with a profound connection to the enduring legacy of ancient Greece.<BR>
+<BR>
+       
+        </p>
+    </section>
+
+    <section id="history">
+        <h2 class="about" style="text-align:center" > History </h2>
+        
+        <p class="p">
+           The history of the Acropolis spans millennia, with its origins dating back to the 5th century BCE. Pericles initiated a monumental building program, leading to the construction of the Parthenon and other significant structures, transforming the Acropolis into a center of cultural and political importance. Over the centuries, it witnessed the rise and fall of empires, serving various purposes under Roman, Byzantine, and Ottoman rule. Despite damage from wars and natural disasters, ongoing restoration efforts ensure the preservation of this cultural treasure. The Acropolis remains a testament to the enduring spirit of ancient Greece, a beacon of classical art and philosophy that continues to captivate and inspire.
+</p>
+    </section>
+
+    <section id="places">
+        <h2 class="about" >Journey Through Time, Elegance</h2>
+        
+<div id="places-container">
+<div class="place-card">
+<img src="../images/../../images/wallpaperflare.com_wallpaper (42).jpg" alt="Place 1">
+ <h3>Parthenon</h3>
+ </div>
+
+<div class="place-card">
+ <img src="../images/../../images/PROPOLEA.jpg" alt="Place 2">
+<h3>Propylaea</h3>
+</div>
+
+<div class="place-card">
+<img src="../images/../../images/ECHCHERIA.jpg" alt="Place 3">
+<h3>Erechtheion</h3>
+</div>
+
+                </div>
+
+<div id="places-container">
+ <div class="place-card">
+                <img src="../images/../../images/TEMPLE OF ATHENS.jpg" alt="Place 4">
+                 <h3>Temple of Athena Nike</h3>
+              
+                
+
+            </div>
+
+            <div class="place-card">
+
+                <img src="../images/../../images/odeon-of-herodes.jpg" alt="Place 5">
+                 <h3>Odeon of Herodes Atticus</h3>
+                
+                
+            </div>
+
+            <div class="place-card">
+
+                <img src="../images/../../images/Areopagus-Hill-Mars-Hill-Athens-Greece.jpg" alt="Place 6">
+                  <h3>Areopagus (Mars Hill)</h3>
+                
+                
+            </div>
+</div>
+
+
+    
+
+    </section>
+
+    <section id="map">
+        <h2 class="about" style="text-align:center">Map</h2>
+        <!-- Add your map here, for example, using an iframe with a map embed code -->
+      <iframe
+    class="map"
+ src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.23963690552!2d23.723174274763934!3d37.97153650080328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bd1837f5acf3%3A0x5c97c042f5eb0df6!2sAcropolis%20of%20Athens!5e0!3m2!1sen!2slk!4v1701625218974!5m2!1sen!2slk"
+    width="600"
+    height="550px"
+    style="border:0;"
+    allowfullscreen=""
+    loading="lazy"
+></iframe>
+
+
+
+    </section>
+
+    </div><footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>About Travel Idea</h3>
+                <p>Your gateway to exploring the world. We provide curated travel plans and inspiration for your next adventure.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../Home.html">Home</a></li>
+                    <li><a href="../Country Page.html">Country</a></li>
+                    <li><a href="../Contact Us.html">Contact Us</a></li>
+                    <li><a href="../About Us.html">About Us</a></li>
+                    <li><a href="../Feedback.html">Feedback</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Travel Lane, Adventure City</li>
+                    <li><i class="fas fa-phone"></i> +94771231233</li>
+                    <li><i class="fas fa-envelope"></i> travelidea@gmail.com</li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Travel Idea. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+
+
+
+
+

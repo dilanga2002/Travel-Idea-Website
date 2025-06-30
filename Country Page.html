@@ -1,0 +1,532 @@
+﻿<html>
+<head>
+<style>
+
+   body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.container {
+  background-color: #fff;
+  padding: 30px;
+  display: grid;
+  align-items: center;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  width: 600px;
+}
+
+
+
+
+
+select {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px; 
+}
+
+button {
+  padding: 10px 0; 
+  text-align: center;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 60%; 
+  box-sizing: border-box; 
+  margin: 10px auto 0;
+}
+.bg { 
+      background-image: url("images/wallpaperflare.com_wallpaper (31).jpg") ;
+      background-size: cover;
+} 
+
+  </style>
+  <meta name="description" content="Select your travel destination from our curated list of countries. Explore Egypt, France, Greece, Sri Lanka, China, India, Germany, Japan, Brazil, and Canada with Travel Idea.">
+  <meta name="keywords" content="travel destinations, country selection, travel countries, international travel, destination guide">
+  <meta name="author" content="Travel Idea">
+  <title>Choose Your Destination - Travel Idea Country Selection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #667eea;
+            --primary-dark: #5a67d8;
+            --secondary: #764ba2;
+            --accent: #f093fb;
+            --accent-alt: #f5576c;
+            --bg-glass: rgba(255, 255, 255, 0.08);
+            --bg-glass-hover: rgba(255, 255, 255, 0.12);
+            --bg-dark: #0f0f23;
+            --bg-footer: #1a1a2e;
+            --text-main: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-muted: #a0aec0;
+            --radius: 20px;
+            --radius-sm: 12px;
+            --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.1);
+            --shadow-glow: 0 0 40px rgba(102, 126, 234, 0.15);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Header Styles */
+        header {
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 8px 20px rgba(102, 126, 234, 0.3));
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 8px;
+            align-items: center;
+        }
+
+        nav ul li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 12px 24px;
+            border-radius: 50px;
+            transition: var(--transition);
+            position: relative;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        nav ul li a::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-alt));
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        nav ul li a:hover::before,
+        nav ul li a.active::before {
+            opacity: 1;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: var(--text-main);
+            transform: translateY(-2px);
+        }
+
+        /* Footer Styles */
+        .site-footer {
+            background: var(--bg-footer);
+            background-image: linear-gradient(135deg, var(--bg-footer) 0%, #0f0f23 100%);
+            color: var(--text-muted);
+            padding: 40px 0 0 0;
+            margin-top: 60px;
+            position: relative;
+        }
+
+        .site-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .footer-section h3 {
+            color: var(--text-main);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-alt));
+            border-radius: 2px;
+        }
+
+        .footer-about p {
+            line-height: 1.6;
+            margin-bottom: 12px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-links ul,
+        .footer-contact ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+            padding-left: 15px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links ul li a::before {
+            content: 'â†’';
+            position: absolute;
+            left: 0;
+            opacity: 0;
+            transition: var(--transition);
+            color: var(--accent);
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--accent);
+            padding-left: 20px;
+        }
+
+        .footer-links ul li a:hover::before {
+            opacity: 1;
+        }
+
+        .footer-contact ul li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-contact ul li i {
+            margin-right: 12px;
+            color: var(--accent);
+            width: 18px;
+            text-align: center;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg-glass);
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-icons a:hover {
+            background: linear-gradient(135deg, var(--accent), var(--accent-alt));
+            color: var(--text-main);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(240, 147, 251, 0.3);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 20px 40px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .footer-bottom p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .header-container {
+                padding: 0 30px;
+            }
+            
+            .footer-container {
+                padding: 0 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 20px;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li a {
+                padding: 10px 18px;
+                font-size: 0.8rem;
+            }
+
+            .footer-container {
+                padding: 0 20px;
+                grid-template-columns: 1fr;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .footer-bottom {
+                padding: 15px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo img {
+                height: 50px;
+            }
+        }
+    </style>
+    <style>
+        .travel-header {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            box-sizing: border-box;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1000;
+        }
+
+        .travel-header .logo img {
+            height: 70px;
+            transition: transform 0.3s;
+        }
+
+        .travel-header .logo img:hover {
+            transform: scale(1.1);
+        }
+
+        .travel-header nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+        }
+
+        .travel-header nav ul li {
+            margin-left: 25px;
+        }
+
+        .travel-header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 12px 18px;
+            border-radius: 25px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .travel-header nav ul li a:hover,
+        .travel-header nav ul li a.active {
+            background-color: #ff6347;
+            color: #fff;
+        }
+
+            </style>
+</head>
+<body class="bg" >
+        <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/travel logo.png" alt="Travel Idea Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="Home.html">HOME</a></li>
+                    <li><a href="Country Page.html" class="active">COUNTRY</a></li>
+                    <li><a href="Contact Us.html">CONTACT US</a></li>
+                    <li><a href="About Us.html">ABOUT US</a></li>
+                    <li><a href="Feedback.html">FEEDBACK</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+  <main>
+    <div class="country-card" style="background: rgba(0,0,0,0.8); box-shadow: 0 8px 32px rgba(0,0,0,0.4); border-radius: 20px; max-width: 400px; margin: 60px auto 40px auto; padding: 40px 30px 32px 30px; text-align: center; backdrop-filter: blur(12px); border: 2px solid rgba(240,147,251,0.4);">
+      <h1 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #ffffff; margin-bottom: 18px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); font-weight: 700;">Select a Country</h1>
+      <p style="color: #e2e8f0; font-size: 1.1rem; margin-bottom: 22px; text-shadow: 1px 1px 2px rgba(0,0,0,0.8); font-weight: 500;">Choose your destination to explore top tourist sites:</p>
+      <label for="country" style="display:none;">Country</label>
+      <select id="country" style="width: 100%; padding: 14px 12px; border-radius: 12px; border: 2px solid #f093fb; font-size: 1.1rem; margin-bottom: 24px; background: rgba(255,255,255,0.95); color: #333; font-family: inherit; outline: none; font-weight: 600;">
+        <option value="egy">Egypt</option>
+        <option value="fr">France</option>
+        <option value="Ge">Greece</option>
+        <option value="lk">Sri Lanka</option>
+        <option value="Ch">China</option>
+        <option value="in">India</option>
+        <option value="Gr">Germany</option>
+        <option value="jp">Japan</option>
+        <option value="br">Brazil</option>
+        <option value="ca">Canada</option>
+      </select>
+      <button onclick="selectCountry()" style="width: 100%; padding: 14px 0; border-radius: 50px; background: linear-gradient(135deg, #667eea, #5a67d8); color: #ffffff; font-size: 1.1rem; font-weight: 700; border: none; cursor: pointer; box-shadow: 0 0 40px rgba(102,126,234,0.15); transition: all 0.3s; letter-spacing: 0.5px; text-transform: uppercase;">Explore</button>
+    </div>
+  </main>
+
+   <script>
+   function selectCountry() {
+   var selectedCountry = document.getElementById("country").value;
+   var pageMap = {
+   "lk": "lk_tourist_sites.html",
+   "egy": "Egy_tourist_sites.html",
+   "ca": "ca_tourist_sites.html",
+   "Gr": "Gr_tourist_sites.html",
+   "Ge": "Ge_tourist_sites.html",
+   "fr": "Fr_tourist_sites.html",
+   "jp": "Jp_tourist_sites.html",
+   "Ch": "Ch_tourist_sites.html",
+   "in": "In_tourist_sites.html",
+   "br": "Br_tourist_sites.html",
+   "au": "Au_tourist_sites.html"
+   };
+   
+   var page = pageMap[selectedCountry];
+   if (page) {
+   window.location.href = "subpages/" + page;
+   } else {
+   // fallback: try generic
+   window.location.href = "subpages/" + selectedCountry + "_tourist_sites.html";
+   }
+   }
+   </script>
+           <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-section footer-about">
+                <h3>About Travel Idea</h3>
+                <p>Your gateway to exploring the world with confidence and style. We specialize in creating extraordinary travel experiences that go beyond the ordinary, connecting you with the heart and soul of every destination.</p>
+                <p>Since our founding, we've helped thousands of travelers discover their perfect adventures across the globe.</p>
+            </div>
+            <div class="footer-section footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="Country Page.html" class="active">Destinations</a></li>
+                    <li><a href="Contact Us.html">Contact Us</a></li>
+                    <li><a href="About Us.html">About Us</a></li>
+                    <li><a href="Feedback.html">Feedback</a></li>
+                </ul>
+            </div>
+            <div class="footer-section footer-contact">
+                <h3>Get In Touch</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Travel Lane, Adventure City</li>
+                    <li><i class="fas fa-phone"></i> +94 77 123 1233</li>
+                    <li><i class="fas fa-envelope"></i> hello@travelidea.com</li>
+                    <li><i class="fas fa-clock"></i> Mon - Fri: 9:00 AM - 6:00 PM</li>
+                </ul>
+            </div>
+            <div class="footer-section footer-social">
+                <h3>Follow Our Journey</h3>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Travel Idea. All rights reserved. | Crafted with â¤ï¸ for adventurous souls</p>
+        </div>
+    </footer>
+</body>
+   </html>
+
+
+
